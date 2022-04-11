@@ -37,7 +37,6 @@ function startPrompt() {
           case "View All Employees?":
             viewAllEmployees();
           break;
-  
         case "View All Employee's By Roles?":
             viewAllRoles();
           break;
@@ -62,5 +61,24 @@ function startPrompt() {
             break;
   
           }
+  })
+}
+
+// Functions that are called above are defined below and evoked based on user choices
+function viewAllRoles() {
+  connection.query("SELECT employee.first_name, employee.last_name, role.title AS Title FROM employee JOIN role ON employee.role_id = role.id;", 
+  function(err, res) {
+  if (err) throw err
+  console.table(res)
+  startPrompt()
+  })
+}
+
+function viewAllDepartments() {
+  connection.query("SELECT employee.first_name, employee.last_name, department.name AS Department FROM employee JOIN role ON employee.role_id = role.id JOIN department ON role.department_id = department.id ORDER BY employee.id;", 
+  function(err, res) {
+    if (err) throw err
+    console.table(res)
+    startPrompt()
   })
 }
