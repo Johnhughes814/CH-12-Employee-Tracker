@@ -1,4 +1,3 @@
-
 --CREATING OUR DATABASE --
 DROP DATABASE IF EXISTS employee_trackerDB;
 
@@ -10,7 +9,6 @@ USE employee_trackerDB;
 CREATE TABLE department (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(30)
- 
 );
 -- DEPARTMENT TABLE ----
 CREATE TABLE role (

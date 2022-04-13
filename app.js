@@ -12,10 +12,16 @@ const connection = mysql.createConnection({
 
 connection.connect(function (err) {
   if (err) throw err;
-  console.log("Connected as Id" + connection.threadId + "at http://localhost:" + connection.port);
+  console.log(
+    "Connected as Id" +
+      connection.threadId +
+      "at http://localhost:" +
+      connection.port
+  );
   startPrompt();
 });
 
+// Contains all the user prompts followed by the switch statement that executes the function corresponding the user input.
 function startPrompt() {
   inquirer
     .prompt([
@@ -24,29 +30,29 @@ function startPrompt() {
         message: "What would you like to do?",
         name: "choice",
         choices: [
-          "View All Employees?",
-          "View All Employee's By Roles?",
-          "View all Emplyees By Deparments",
+          "View All Employees",
+          "View All Employees By Roles",
+          "View all Employees By Deparments",
           "Update Employee",
-          "Add Employee?",
-          "Add Role?",
-          "Add Department?",
+          "Add Employee",
+          "Add Role",
+          "Add Department",
         ],
       },
     ])
     .then(function (val) {
       switch (val.choice) {
-        case "View All Employees?":
+        case "View All Employees":
           viewAllEmployees();
           break;
-        case "View All Employee's By Roles?":
+        case "View All Employees By Roles":
           viewAllRoles();
           break;
-        case "View all Emplyees By Deparments":
+        case "View all Employees By Deparments":
           viewAllDepartments();
           break;
 
-        case "Add Employee?":
+        case "Add Employee":
           addEmployee();
           break;
 
@@ -54,11 +60,11 @@ function startPrompt() {
           updateEmployee();
           break;
 
-        case "Add Role?":
+        case "Add Role":
           addRole();
           break;
 
-        case "Add Department?":
+        case "Add Department":
           addDepartment();
           break;
       }
@@ -67,13 +73,15 @@ function startPrompt() {
 
 // Functions that are called above are defined below and evoked based on user choices
 function viewAllEmployees() {
-      connection.query("SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name, CONCAT(e.first_name, ' ' ,e.last_name) AS Manager FROM employee INNER JOIN role on role.id = employee.role_id INNER JOIN department on department.id = role.department_id left join employee e on employee.manager_id = e.id;", 
-      function(err, res) {
-        if (err) throw err
-        console.table(res)
-        startPrompt()
-    })
-  }
+  connection.query(
+    "SELECT employee.first_name, employee.last_name, role.title, role.salary, department.name, CONCAT(e.first_name, ' ' ,e.last_name) AS Manager FROM employee INNER JOIN role on role.id = employee.role_id INNER JOIN department on department.id = role.department_id left join employee e on employee.manager_id = e.id;",
+    function (err, res) {
+      if (err) throw err;
+      console.table(res);
+      startPrompt();
+    }
+  );
+}
 
 function viewAllRoles() {
   connection.query(
@@ -98,11 +106,13 @@ function viewAllDepartments() {
 }
 
 function viewAllDepartments() {
+  console.log("looking for table here")
   connection.query(
     "SELECT employee.first_name, employee.last_name, department.name AS Department FROM employee JOIN role ON employee.role_id = role.id JOIN department ON role.department_id = department.id ORDER BY employee.id;",
     function (err, res) {
       if (err) throw err;
       console.table(res);
+      console.log("looking for table here")
       startPrompt();
     }
   );
@@ -204,8 +214,10 @@ function updateEmployee() {
             message: "What is the Employees new title? ",
             choices: selectRole(),
           },
+         
         ])
         .then(function (val) {
+          
           var roleId = selectRole().indexOf(val.role) + 1;
           connection.query(
             "UPDATE employee SET WHERE ?",
@@ -215,6 +227,10 @@ function updateEmployee() {
             {
               role_id: roleId,
             },
+            // {customName = customName.trim();
+            //   if ( (customName === '') || (customName.toUpperCase() === 'NULL') ) {
+            //   customName = null;
+            // }},
             function (err) {
               if (err) throw err;
               console.table(val);
