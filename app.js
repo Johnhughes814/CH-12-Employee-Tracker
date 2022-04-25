@@ -32,7 +32,7 @@ function startPrompt() {
         choices: [
           "View All Employees",
           "View All Employees By Roles",
-          "View all Employees By Deparments",
+          "View all Employees By Departments",
           "Update Employee",
           "Add Employee",
           "Add Role",
