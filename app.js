@@ -48,16 +48,12 @@ function startPrompt() {
         case "View All Employees By Roles":
           viewAllRoles();
           break;
-        case "View all Employees By Deparments":
+        case "View all Employees By Departments":
           viewAllDepartments();
           break;
 
         case "Add Employee":
           addEmployee();
-          break;
-
-        case "Update Employee":
-          updateEmployee();
           break;
 
         case "Add Role":
