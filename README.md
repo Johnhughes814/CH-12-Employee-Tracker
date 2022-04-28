@@ -10,7 +10,8 @@
 A command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and MySQL.
 
 
-### [DEMO (https://youtu.be/rO4kMkyqSMA)](https://youtu.be/rO4kMkyqSMA)
+[![DEMO](https://www.freepnglogos.com/uploads/youtube-logo-icon-png-11.png)](https://www.youtube.com/watch?v=rO4kMkyqSMA)
+
 
 
 
