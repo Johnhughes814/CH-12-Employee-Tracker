@@ -9,8 +9,9 @@
 ## Description
 a command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and MySQL
 
-### ![DEMO_IMAGE_OR_MOVIE](https://github.com/Johnhughes814/CH-12-Employee-Tracker/blob/main/demo.gif)
+### ![DEMO](https://youtu.be/rO4kMkyqSMA)
 
+<iframe src="https://drive.google.com/file/d/1BwYOISF77U_KzMngDLyrMpXfBHf3gf_D/preview" width="640" height="480"></iframe>
 
 ## Table of Contents
   - [License](#license)
