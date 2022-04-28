@@ -7,17 +7,18 @@
 <img src="https://img.shields.io/badge/mysql2-2.3.3-blue" alt="mysql2"></a>
 
 ## Description
-a command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and MySQL
+A command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and MySQL.
 
 ### ![DEMO](https://youtu.be/rO4kMkyqSMA)
+### ![DEMO_IMAGE_OR_MOVIE](https://github.com/Johnhughes814/CH-12-Employee-Tracker/raw/main/demo.gif)
 
 <iframe src="https://drive.google.com/file/d/1BwYOISF77U_KzMngDLyrMpXfBHf3gf_D/preview" width="640" height="480"></iframe>
 
 ## Table of Contents
   - [License](#license)
   - [Context](#context)
-  - [Setup](#setup)
   - [Installation](#installation)
+  - [Setup](#setup)
   - [Contributers](#contributers)
   - [Contact](#contact)
 
@@ -30,6 +31,11 @@ a command-line application from scratch to manage a company's employee database,
 
 ## Context
 This is built to create an employee directory for a company!
+
+## Installation
+```
+npm install
+```
 
 ## Setup
 ```
@@ -46,11 +52,6 @@ node db/seeds.sql
 ```
 ```
 npm start
-```
-
-## Installation
-```
-npm install
 ```
 
 ## Contributers
